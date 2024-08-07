@@ -10,6 +10,9 @@ const app = express();
 // mongoose:
 const port = 4000;
 
+//allow cross origin
+app.use(cors());
+
 // import routes
 const workoutRoutes = require('./routes/workouts')
 
