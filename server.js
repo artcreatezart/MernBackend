@@ -16,7 +16,9 @@ const port = 4000;
 app.use(cors());
 
 // import routes
-const workoutRoutes = require('./routes/workouts')
+const workoutRoutes = require('./routes/workouts');
+const userRoutes = require('./routes/user');
+const commentRoutes = require('./routes/comments')
 
 // use json with express
 app.use(express.json());
@@ -29,6 +31,10 @@ app.use((req, res, next) => {
 
 // Attach the routes to the app
 app.use('/api/workouts', workoutRoutes)
+app.use('/api/user', userRoutes)
+app.use('/api/comments', commentRoutes)
+// Serve Static files
+app.use('/public/uploads', express.static('public/uploads'))
 
 const mongoUsername = process.env.MONGODB_USERNAME
 const mongoPassword = process.env.MONGODB_PASSWORD
